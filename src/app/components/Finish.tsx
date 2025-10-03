@@ -1,6 +1,4 @@
-import { Button } from "@heroui/button"
 import Image from 'next/image'
-import { Modal, ModalContent } from "@heroui/modal"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
@@ -30,27 +28,23 @@ const Finish = (props: Props) => {
             </div>
 
             {isGameOver && (
-                <Modal isOpen={true} size="full">
-                    <ModalContent>
+                <>
                         <Image src={"/lose-game123-ezgif.com-gif-to-webp-converter.webp"} alt={""} fill/>
                         <Link href={"/"}>
-                            <Button className="mt-4">
+                            <button className="mt-4">
                                 Restart Game
-                            </Button>
+                            </button>
                         </Link>
-                    </ModalContent>
-                </Modal>
+                </>
             )}
 
             {allPlayerFinished && !isGameOver && (
-                <Modal isOpen={true} size="full">
-                    <ModalContent>
+                <>
                         <Image src={"/winning-gif.gif"} alt={""} fill/>
-                        <Button className="mt-4" onClick={handleNextGame}>
+                        <button className="mt-4" onClick={handleNextGame}>
                             Next Game
-                        </Button>
-                    </ModalContent>
-                </Modal>
+                        </button>
+                </>
             )}
         </>
     )

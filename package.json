@@ -9,10 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@heroui/button": "^2.2.26",
-    "@heroui/modal": "^2.2.23",
-    "@heroui/system": "^2.4.22",
-    "@heroui/theme": "^2.4.22",
     "framer-motion": "^12.23.15",
     "howler": "^2.2.4",
     "next": "15.5.3",

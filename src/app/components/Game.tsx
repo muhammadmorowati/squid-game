@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Button } from '@heroui/button';
 import Contestant from "./Contestant";
 import DollMusic from "./DollMusic";
 import Finish from "./Finish";
@@ -36,9 +35,9 @@ const Game = () => {
           <Image src="/squid-game-start.jpg" alt="squid-game-start" width={400} height={300} />
           <h1 className="text-2xl font-medium text-white my-3">Squid Game Online</h1>
           {!loading ? (
-            <Button onPress={() => setGameStarted(true)} color="secondary" size="lg">
+            <button onClick={() => setGameStarted(true)} color="secondary" >
               Start Game
-            </Button>
+            </button>
           ) : (
             <h1>Loading...</h1>
           )}
@@ -53,7 +52,7 @@ const Game = () => {
         {timeLeft}
       </h1>
 
-      <Button
+      <button
         className="absolute border left-1/2 top-1/3 min-[2000px]:w-40 min-[2000px]:h-20 min-[2000px]:text-3xl"
         onMouseEnter={onMoveStart}
         onMouseLeave={onMoveStop}
@@ -61,7 +60,7 @@ const Game = () => {
         onTouchEnd={onMoveStop}
       >
         Move
-      </Button>
+      </button>
 
       <Finish isGameOver={player.gameOver} allPlayerFinished={allFinished} />
 
