@@ -1,11 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Contestant from "./Contestant";
-import DollMusic from "./DollMusic";
-import Finish from "./Finish";
-import { useGameStore } from "./UseGameStore";
+import { useEffect, useState } from "react"
+import Image from "next/image"
+import Contestant from "./Contestant"
+import DollMusic from "./DollMusic"
+import Finish from "./Finish"
+import { useGameStore } from "./UseGameStore"
 
 const Game = () => {
   const {
@@ -19,14 +19,14 @@ const Game = () => {
     onMoveStop,
     setGameStarted,
     gameStarted,
-  } = useGameStore();
+  } = useGameStore()
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    const timer = setTimeout(() => setLoading(false), 3000)
+    return () => clearTimeout(timer)
+  }, [])
 
   if (loading || !gameStarted) {
     return (
@@ -43,7 +43,7 @@ const Game = () => {
           )}
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -79,7 +79,7 @@ const Game = () => {
         // playerGameOver={player.gameOver}
       />
     </div>
-  );
-};
+  )
+}
 
-export default Game;
+export default Game

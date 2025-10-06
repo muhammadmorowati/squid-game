@@ -1,12 +1,12 @@
-import { Howl } from 'howler';
-import { useEffect, useRef } from 'react';
+import { Howl } from 'howler'
+import { useEffect, useRef } from 'react'
 
 type GameAudioProps = {
-  greenLight: boolean;
-};
+  greenLight: boolean
+}
 
-export default function GameAudio({ greenLight }: GameAudioProps) {
-  const greenLightSound = useRef<Howl | null>(null);
+ const GameAudio = ({ greenLight }: GameAudioProps) => {
+  const greenLightSound = useRef<Howl | null>(null)
 
   useEffect(() => {
     if (!greenLightSound.current) {
@@ -15,23 +15,25 @@ export default function GameAudio({ greenLight }: GameAudioProps) {
         volume: 0.5,
         loop: false, // Prevent looping, so it cuts off when red light happens
         rate: 1, // Default speed
-      });
+      })
     }
 
     if (greenLight) {
       // Random speed between 1x and 2x
-      const randomSpeed = 1 + Math.random();
-      greenLightSound.current.rate(randomSpeed);
+      const randomSpeed = 1 + Math.random()
+      greenLightSound.current.rate(randomSpeed)
       
-      greenLightSound.current.play();
+      greenLightSound.current.play()
     } else {
-      greenLightSound.current.stop(); // Stop completely on red light
+      greenLightSound.current.stop() // Stop completely on red light
     }
 
     return () => {
-      greenLightSound.current?.stop(); // Ensure it stops when unmounting
-    };
-  }, [greenLight]);
+      greenLightSound.current?.stop() // Ensure it stops when unmounting
+    }
+  }, [greenLight])
 
-  return null;
+  return null
 }
+
+export default GameAudio

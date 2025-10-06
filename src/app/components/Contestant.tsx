@@ -1,6 +1,6 @@
-import Image from 'next/image';
- import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image'
+ import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 type Props = {
     x: number
@@ -11,30 +11,31 @@ type Props = {
 
 const Contestant = ({ x, y, name, gameOver }: Props) => {
 
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(true)
     
     useEffect(() => {
         if (gameOver) {
 // Play bullet sound effect 
-            const bulletSound = new Audio('/sounds/MLG sniper sound effect.mp3');
-            bulletSound.play();
+            const bulletSound = new Audio('/sounds/MLG sniper sound effect.mp3')
+            bulletSound.play()
 // Remove player after explosion animation
-            setTimeout(() => setVisible(false), 1000);
+            setTimeout(() => setVisible(false), 1000)
         }
-    }, [gameOver]);
-    if (!visible) return null;
+    }, [gameOver])
+    if (!visible) return null
 // Hide the player after explosion 
     return (
         <AnimatePresence>
             
             <motion.div
-                className="absolute"
+               
+               className="absolute"
                 key={name}
                 style={{ left: `${x}px`, top: `${y}px` }}
-            initial={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 1, scale: 1 }}
             animate={gameOver ? { scale: [1, 1.5, 0], opacity: [1, 0.5, 0] } :
-                {}} transition={{ duration: 1, ease: 'easeOut' }}
-exit={{ opacity: 0 }}
+            {}} transition={{ duration: 1, ease: 'easeOut' }}
+                exit={{ opacity: 0 }}
  // Fade out when removed
 >
             <div className="">
